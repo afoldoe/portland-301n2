@@ -8,6 +8,11 @@
 * Fri May 27th: Portfolio Assignment 7 : Functional Due
 * Note: There is no assignment for Portfolio 8: CRUD
 
+### For those following along
+`git checkout -b sandbox`
+
+Remember to add and commit any changes into your sandbox. This will avoid future headaches and merge conflicts.
+
 # Review
 
 ## Finding something in a directory - example
@@ -64,6 +69,55 @@ H - file name
 
 # Lecture
 
+## Slides
+
+```
+DROP TABLE articles;
+
+CREATE TABLE articles(
+	id INTEGER PRIMARY KEY, 
+	title VARCHAR(50), 
+	author VARCHAR(50), 
+	markdown TEXT, 
+	publishedOn DATETIME );
+	
+	
+INSERT INTO articles (title, author, markdown, publishedOn)VALUES ('Bacon Ipsum', 'Kevin Bacon', '# hickory smoked', '2012-12-25');
+
+INSERT INTO articles (title, author, markdown, publishedOn)VALUES ('Return of Bacon Ipsum', 'Kevin Bacon', '# hickory smoked', '2014-12-25');
+
+INSERT INTO articles (title, author, markdown, publishedOn)VALUES ('Revenge of Bacon Ipsum', 'Kevin Bacron', '# hickory smoked', '2015-12-25');
+
+  SELECT title, author, publishedOn    FROM articles   WHERE publishedOn 
+ BETWEEN '2015-01-01' AND '2015-12-31' 
+   ORDER BY publishedOn DESC;
+
+UPDATE articles SET author = 'Kevin Bacon' WHERE author = 'Keven Bacron';
+
+DELETE FROM articles WHERE author = 'Keven Bacron';
+	
+```
+
+```
+webDB.execute (	[ 
+		{ 
+		  sql: 'INSERT INTO articles (title, author, markdown, publishedOn) VALUES (?, ?, ?, ?);',		  data: ['Bacon Ipsum the Fourth', 'Kevin Bacron', '# hickory smoked', '2012-12-25']
+		}	],function(rows){ console.table(rows); });
+
+
+webDB.execute (	[ 
+		{ 
+		  sql: 'UPDATE articles SET author = ? WHERE author = ? ;',		  data: ['Kevin Bacon', 'Keven Bacron']
+		}	],function(rows){ console.table(rows); });
+
+
+
+webDB.execute (	[ 
+		{ 
+		  sql: 'SELECT * FROM articles;',		  data: [1]
+		}	],function(rows){ console.table(rows); });
+```
+
 ## Databases
 
 RDBMS: Relational database management system 
@@ -73,6 +127,8 @@ RDBMS: Relational database management system
 PostgreSQL, SQLite, MySql, MSSQL
 
 # Demo
+
+## Demo One
 
 1. Add the following to PostgreSQL
 2. Demonstrate `SELECT`, `INSERT`, `UPDATE`, `DELETE` and `JOIN`
