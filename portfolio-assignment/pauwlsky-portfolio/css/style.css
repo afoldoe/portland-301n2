@@ -1,4 +1,4 @@
-
+/*TODO refactor CSS into SCSS using SASS and Grunt*/
 /*BASE*/
 
 /*#3d5667*/
@@ -161,6 +161,18 @@ select{
   display: flex;
   max-height: 25.0rem;
   margin: 0 20px 50px 20px;
+}
+/*TODO change .skills-images container and images to be mobile responsive*/
+.skills-images img{
+  height: 10.0rem;
+  margin: 3em 1em;
+}
+
+.skills-images{
+  margin: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  clear: both;
 }
 
 
